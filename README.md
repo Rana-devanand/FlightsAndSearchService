@@ -13,6 +13,8 @@
     "development": {
     "username": "root",
     "password": "root",
+    "username": <YOUR_DB_NAME>,
+    "password": <YOUR_DB_PASSWORD>,
     "database": "Airline_And_Search",
     "host": "127.0.0.1",
     "dialect": "mysql"
