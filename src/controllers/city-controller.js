@@ -26,7 +26,7 @@ const create = async (req, res) => {
 // delete -> /city/:id [id.params]
 const destroy = async (req, res) => {
   try {
-    const response = await cityService.destroy(req.params.id);
+    const response = await cityService.deleteCity(req.params.id);
     return res.status(200).json({
       // status code 200, because we are getting a response from the server.
       data: response,
