@@ -21,7 +21,17 @@
 ```
 
 - Once you've added your db config as listed above, go to the src folder from your terminal and execute the `npx sequelize db:create`.
+- Create the model than write and execute the code that is `npx sequelize model:generate --name '[Write_Your_DB_Name] --attributes name:string'`
 
-```
+- After this command we Execute the `npx execute db:migrate`
 
-```
+## DB Design
+
+    - Airplane Table
+    - Flights
+    - Airport
+    - City
+
+- A flight belongs to an airplane but one airplane can be used in multiple flights.
+- A city has many airports but one airport belongs to a city.
+- One airport can have many flights, but a flight belongs to one airport.

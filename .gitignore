@@ -1,3 +1,5 @@
 node_modules/
 .env
 src/config/config.json
+ER-Diagram
+Project_Folder_overview.md
