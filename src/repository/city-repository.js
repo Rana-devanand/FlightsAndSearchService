@@ -29,11 +29,17 @@ class CityRepository {
 
   async updateCity(cityID, data) {
     try {
-      const city = await City.update(data, {
-        where: {
-          id: cityID,
-        },
-      });
+      // This code return the output as boolean value -> true / false
+      // const city = await City.update(data, {
+      //   where: {
+      //     id: cityID,
+      //   },
+      // });
+
+      // this one is return the update value...->
+      const city = await City.findByPk(cityID);
+      city.name = data.name;
+      await city.save();
       return city;
     } catch (error) {
       console.log("Something Went wrong in the repository layer");
