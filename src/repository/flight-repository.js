@@ -10,6 +10,22 @@ class FlightRepository {
       throw { error };
     }
   }
-}
 
+  async getAllFlight(data) {
+    try {
+      const flight = await Flights.findAll(data);
+      return flight;
+    } catch (error) {
+      console.log("Something went wrong");
+      throw { error };
+    }
+  }
+}
+// const check = async () => {
+//   const obj = new FlightRepository();
+//   const x = await obj.getAllFlight();
+//   console.log(x);
+// };
+
+// check();
 module.exports = FlightRepository;
