@@ -5,7 +5,6 @@ const CityRepository = require("./repository/city-repository");
 const ApiRoutes = require("./routers/index");
 
 // const db = require("./models/index");
-const { City, Airport } = require("./models/index");
 const setupAndStartService = async () => {
   const app = express();
 

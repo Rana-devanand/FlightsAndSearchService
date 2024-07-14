@@ -25,7 +25,7 @@ class FlightService {
     }
   }
 
-  async getFLightData() {}
+  async getFlightData() {}
 }
 
 module.exports = FlightService;
