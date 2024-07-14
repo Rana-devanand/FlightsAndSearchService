@@ -24,7 +24,7 @@ const create = async (req, res) => {
 
 const getAll = async (req, res) => {
   try {
-    const flights = await flightService.getAllFlight(req.params);
+    const flights = await flightService.getAllFlight(req.query);
     return res.status(200).json({
       data: flights,
       success: true,
