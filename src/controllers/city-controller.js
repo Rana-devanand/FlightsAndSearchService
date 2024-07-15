@@ -1,11 +1,12 @@
 const { CityService } = require("../services/index");
+const { ServerErrorCodes, SuccessCodes } = require("../utils/error-codes");
 
 const cityService = new CityService();
 
 const create = async (req, res) => {
   try {
     const city = await cityService.createCity(req.body);
-    return res.status(201).json({
+    return res.status(SuccessCodes.CREATED).json({
       // status code 201, because we are sending some request to the server.
       data: city,
       success: true,
@@ -14,7 +15,7 @@ const create = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({
+    return res.status(ServerErrorCodes.INTERNAL_SERVER_ERROR).json({
       data: {},
       success: false,
       message: "Not able to create a city",
@@ -27,7 +28,7 @@ const create = async (req, res) => {
 const destroy = async (req, res) => {
   try {
     const response = await cityService.deleteCity(req.params.id);
-    return res.status(200).json({
+    return res.status(SuccessCodes.OK).json({
       // status code 200, because we are getting a response from the server.
       data: response,
       success: true,
@@ -36,7 +37,7 @@ const destroy = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({
+    return res.status(ServerErrorCodes.INTERNAL_SERVER_ERROR).json({
       data: {},
       success: false,
       message: "Not able to delete a city",
@@ -49,7 +50,7 @@ const destroy = async (req, res) => {
 const update = async (req, res) => {
   try {
     const city = await cityService.updateCity(req.params.id, req.body);
-    return res.status(200).json({
+    return res.status(SuccessCodes.OK).json({
       data: city,
       success: true,
       message: " Successfully update the city",
@@ -57,7 +58,7 @@ const update = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({
+    return res.status(ServerErrorCodes.INTERNAL_SERVER_ERROR).json({
       data: {},
       success: false,
       message: "Not able to update the city",
@@ -70,7 +71,7 @@ const update = async (req, res) => {
 const get = async (req, res) => {
   try {
     const city = await cityService.getCity(req.params.id, req.body);
-    return res.status(200).json({
+    return res.status(SuccessCodes.OK).json({
       data: city,
       success: true,
       message: " Successfully Fetched the city",
@@ -78,7 +79,7 @@ const get = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({
+    return res.status(ServerErrorCodes.INTERNAL_SERVER_ERROR).json({
       data: {},
       success: false,
       message: "Not able to fetched the city",
@@ -90,7 +91,7 @@ const get = async (req, res) => {
 const getALlCities = async (req, res) => {
   try {
     const fetchCities = await cityService.getCities(req.query);
-    return res.status(200).json({
+    return res.status(SuccessCodes.OK).json({
       data: fetchCities,
       success: true,
       message: " Successfully fetched all the cities",
@@ -98,7 +99,7 @@ const getALlCities = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({
+    return res.status(ServerErrorCodes.INTERNAL_SERVER_ERROR).json({
       data: {},
       success: false,
       message: "Not able to fetched the data",
