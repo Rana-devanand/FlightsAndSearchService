@@ -54,6 +54,16 @@ class FlightRepository {
       throw { error };
     }
   }
+
+  async getFlight(flightId) {
+    try {
+      const response = await Flights.findByPk(flightId);
+      return response;
+    } catch (error) {
+      console.log("Something went wrong");
+      throw { error };
+    }
+  }
 }
 
 module.exports = FlightRepository;
