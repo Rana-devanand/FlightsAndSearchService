@@ -67,13 +67,15 @@ class FlightRepository {
 
   async updateFlight(flightId, data) {
     try {
-      const flight = await Flights.update(data, {
+      console.log(flightId, data);
+      await Flights.update(data, {
         where: {
           id: flightId,
         },
       });
-      return flight;
+      return true;
     } catch (error) {
+      console.log(error);
       console.log("Something went wrong");
       throw { error };
     }

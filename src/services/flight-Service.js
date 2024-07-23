@@ -52,6 +52,7 @@ class FlightService {
       );
       return updateFLight;
     } catch (error) {
+      console.log(error);
       console.log("Something is going wrong in Service Layer");
       throw { error };
     }

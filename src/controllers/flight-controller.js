@@ -82,6 +82,7 @@ const update = async (req, res) => {
       err: {},
     });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
       data: {},
       success: false,
