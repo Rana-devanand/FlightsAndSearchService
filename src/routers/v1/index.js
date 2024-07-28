@@ -22,5 +22,6 @@ router.get("/flights/:id", FlightController.getFlight);
 router.patch("/flights/:id", FlightController.update);
 
 router.post("/airports", AirportController.create);
+router.get("/airport/:id", AirportController.getAirportByID);
 
 module.exports = router;
